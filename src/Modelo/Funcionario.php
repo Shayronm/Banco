@@ -4,6 +4,7 @@ namespace Projeto\Banco\Modelo;
 
 class Funcionario extends Pessoa
 {
+    
     private string $cargo;
 
     public function __construct(string $nome, CPF $cpf, Endereco $endereco, string $cargo)

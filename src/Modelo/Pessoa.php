@@ -8,7 +8,6 @@ class Pessoa
     private CPF $cpf;
     protected Endereco $endereco;
 
-
     public function __construct(string $nome, CPF $cpf, Endereco $endereco)
     {
         $this->validarNomeTitular($nome);

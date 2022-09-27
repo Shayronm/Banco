@@ -16,7 +16,7 @@ class Conta
         $this->saldo = 0;
         self::$numeroDeContas++;
     }
-
+     //Métodos Mágicos
     public function __destruct()
     {
         self::$numeroDeContas--;

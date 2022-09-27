@@ -7,7 +7,6 @@ use Projeto\Banco\Modelo\Endereco;
 use Projeto\Banco\Modelo\Conta\Conta;
 use Projeto\Banco\Modelo\Conta\Titular;
 
-
 echo "CONTAS: \n\n";
 
 $endereco1 = new Endereco('Juazeiro do Norte', 'Jardim Gonzaga', 'José Bezerra da Silva', '29B');
