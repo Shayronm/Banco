@@ -26,15 +26,23 @@ class Conta
 
     public function sacar(float $valor): void
     {
-        if($valor <= 0){
-            echo 'Saldo Indisponível';
-            return;
-        }elseif($valor > $this->saldo){
-            echo 'Saldo Indisponível';
-            return;
-        }
+        $taxa = $valor * 0.05;
+        $tarifa = $valor * (5/100);
+        $valorDigitado = $valor;
+        $saque = $valor + $taxa;
 
-        $this->saldo -= $valor;
+            if($saque <= 0){
+                echo 'Saldo Indisponivel';
+                return;
+            }elseif($saque > $this->saldo){
+                echo 'Saldo Indisponivel';
+                return;
+            }
+            $this->valor = $valorDigitado;
+            $this->taxa = $tarifa;
+            $this->saldo -= $saque;
+            
+        
     }
 
     public function depositar(float $valor): void
@@ -64,6 +72,16 @@ class Conta
     public function recuperaSaldo(): float
     {
         return $this->saldo;
+    }
+
+    public function recuperaTaxa(): float
+    {
+        return $this->taxa;
+    }
+
+    public function recuperaValorDigitado(): float 
+    {
+        return $this->valor;
     }
 
     public function recuperaNomeTitular(): string 
