@@ -2,11 +2,11 @@
 
 namespace Projeto\Banco\Modelo\Conta;
 
-class Conta
+abstract class Conta
 {
     //Atributos da Conta
     private Titular $titular;
-    private float $saldo;
+    protected float $saldo;
     private static $numeroDeContas = 0;
 
     //Construct
@@ -26,7 +26,7 @@ class Conta
 
     public function sacar(float $valor): void
     {
-        $taxa = $valor * 0.05;
+        $taxa = $valor * $this->percentualTarifa();
         $tarifa = $valor * (5/100);
         $valorDigitado = $valor;
         $saque = $valor + $taxa;
@@ -53,18 +53,6 @@ class Conta
         }
 
         $this->saldo += $valor; 
-    }
-
-    public function transferir(Conta $conta, float $valor): void
-    {
-        if($valor > $this->saldo){
-            echo "Saldo Indisponível";
-            return;
-        }
-        
-        $this->sacar($valor);
-        $conta->depositar($valor);
-        
     }
 
     // Getters
@@ -98,4 +86,7 @@ class Conta
     {
         return self::$numeroDeContas;
     }
+
+    abstract protected function percentualTarifa(): float;
+    
 }

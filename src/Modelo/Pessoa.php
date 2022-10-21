@@ -2,7 +2,9 @@
 
 namespace Projeto\Banco\Modelo;
 
-class Pessoa
+use Projeto\Banco\Modelo\CPF;
+
+abstract class Pessoa
 {
     protected string $nome;
     private CPF $cpf;
@@ -21,9 +23,9 @@ class Pessoa
         return $this->nome;
     }
 
-    public function recuperaCpf(): string
+    public function recuperaCPF(): CPF
     {
-        return $this->cpf->recuperaNumero();
+        return $this->cpf;
     }
 
     public function recuperaEndereco(): Endereco
@@ -37,6 +39,11 @@ class Pessoa
             echo 'Nome precisa ter pelo menos 5 caractere';
             exit();
         }
+    }
+
+    protected function validarCPF(): string
+    {
+        return $this->cpf->recuperaNumero();
     }
 }
 

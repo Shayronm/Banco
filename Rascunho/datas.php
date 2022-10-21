@@ -19,6 +19,7 @@ $intervaloo = $inicio->diff($fim);
 echo $intervaloo->format(' %R%a dias');
 
 $intervalo = new DateInterval('P1M');
+print_r($intervalo);
 
 echo "\n";
 
